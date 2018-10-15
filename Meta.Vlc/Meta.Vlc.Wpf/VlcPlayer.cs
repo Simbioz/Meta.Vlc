@@ -482,6 +482,8 @@ namespace Meta.Vlc.Wpf
             if (VlcMediaPlayer.Media != null) VlcMediaPlayer.Media.Dispose();
             
             VlcMediaPlayer.Media = VlcMediaPlayer.VlcInstance.CreateMediaFromLocation(uri.ToString());
+           //
+            if (VlcMediaPlayer.Media == null) return;
             VlcMediaPlayer.Media.ParseAsync();
 
             _isDVD = VlcMediaPlayer.Media.Mrl.IsDriveRootDirectory();
