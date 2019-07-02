@@ -6,11 +6,13 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Meta.Vlc.Interop.Media;
+using MediaState = Meta.Vlc.Interop.Media.MediaState;
 
 namespace Meta.Vlc.Wpf
 {
@@ -279,7 +281,7 @@ namespace Meta.Vlc.Wpf
                 }
             }));
         }
-        
+
         private IntPtr VideoLockCallback(IntPtr opaque, ref IntPtr planes)
         {
             if (_context == null)
@@ -358,17 +360,17 @@ namespace Meta.Vlc.Wpf
                             _context.Dispose();
                         }
                         _context = new VideoDisplayContext(videoFormatChangingArgs.Width, videoFormatChangingArgs.Height, videoFormatChangingArgs.ChromaType);
-						VideoSource = null;
+                        VideoSource = null;
                     }));
             }
-            
+
             _context.IsAspectRatioChecked = false;
-            chroma = (uint) _context.ChromaType;
-            width = (uint) _context.Width;
-            height = (uint) _context.Height;
-            pitches = (uint) _context.Stride;
-            lines = (uint) _context.Height;
-            return (uint) _context.Size;
+            chroma = (uint)_context.ChromaType;
+            width = (uint)_context.Width;
+            height = (uint)_context.Height;
+            pitches = (uint)_context.Stride;
+            lines = (uint)_context.Height;
+            return (uint)_context.Size;
         }
 
         private void VideoCleanupCallback(IntPtr opaque)

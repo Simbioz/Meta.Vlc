@@ -297,7 +297,7 @@ namespace Meta.Vlc.Wpf
         public PlayerCreateMode CreateMode { get; set; }
 
         #endregion CreateMode
-        
+
         private ThreadSeparatedImage Image
         {
             get { return (ThreadSeparatedImage)GetTemplateChild("Image"); }
@@ -310,7 +310,7 @@ namespace Meta.Vlc.Wpf
             {
                 Dispatcher result = _customDisplayThreadDispatcher;
 
-                if (result == null && Image!= null)
+                if (result == null && Image != null)
                 {
                     result = Image.SeparateThreadDispatcher;
                 }
@@ -336,8 +336,12 @@ namespace Meta.Vlc.Wpf
             get { return _volume; }
             set
             {
-                if (_volume == value || VlcMediaPlayer == null) return;
+                if (_volume == value
+                    || VlcMediaPlayer == null
+                    || VlcMediaPlayer.InstancePointer == IntPtr.Zero)
+                    return;
                 VlcMediaPlayer.Volume = _volume = value;
+
 
                 Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() =>
                 {
