@@ -36,11 +36,11 @@ using System.Windows;
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //主题特定资源词典所处位置
-    //(在页面、应用程序或任何主题特定资源词典中
-    // 未找到某个资源的情况下使用)
+                                     //(在页面、应用程序或任何主题特定资源词典中
+                                     // 未找到某个资源的情况下使用)
     ResourceDictionaryLocation.SourceAssembly //常规资源词典所处位置
-    //(在页面、应用程序或任何主题特定资源词典中
-    // 未找到某个资源的情况下使用)
+                                              //(在页面、应用程序或任何主题特定资源词典中
+                                              // 未找到某个资源的情况下使用)
     )]
 
 // 程序集的版本信息由下面四个值组成:
@@ -54,5 +54,5 @@ using System.Windows;
 // 方法是按如下所示使用“*”:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("16.05.01.0")]
-[assembly: AssemblyFileVersion("16.05.01.0")]
+[assembly: AssemblyVersion("16.05.01.1")]
+[assembly: AssemblyFileVersion("16.05.01.1")]
